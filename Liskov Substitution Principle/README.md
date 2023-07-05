@@ -1,6 +1,6 @@
 ## Liskov Substitution Principle
 
-Liskov Substitution Prensibi (LSP), nesne tabanlı programlamada temel bir prensiptir ve bir üst sınıfa ait nesnelerin, onun alt sınıflarıyla değiştirilebilmesi durumunda programın doğruluğunu etkilemeden çalışması gerektiğini ifade eder. Daha basit bir ifadeyle, bir temel sınıf beklediğimiz herhangi bir yerde türetilmiş bir sınıfı kullanabilmeliyiz ve her şey doğru çalışmalıdır.
+Liskov Yerine Geçme Prensibi (LSP), nesne tabanlı programlamada temel bir prensiptir ve bir üst sınıfa ait nesnelerin, onun alt sınıflarıyla değiştirilebilmesi durumunda programın doğruluğunu etkilemeden çalışması gerektiğini ifade eder. Daha basit bir ifadeyle, bir temel sınıf beklediğimiz herhangi bir yerde türetilmiş bir sınıfı kullanabilmeliyiz ve her şey doğru çalışmalıdır.
 
 LSP'yi daha iyi anlamak için bir örnek üzerinde düşünelim. CalculateArea adında bir yöntem içeren Shape adında bir üst sınıfımız olduğunu varsayalım. Ayrıca Rectangle ve Square adında iki alt sınıfımız var. Rectangle sınıfı uzunluk ve genişliğe sahipken, Square sınıfı sadece bir kenar uzunluğuna sahiptir. İşte LSP'yi uygulamadan bu sınıfların nasıl görünebileceği bir örnek:
 
