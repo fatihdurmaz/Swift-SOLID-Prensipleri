@@ -1,8 +1,8 @@
 ## Single Responsibility Principle
 
-The Single Responsibility Principle (SRP) is a software design principle that states that a class or module should have only one reason to change. In simpler terms, it means that each class should have a single responsibility or task and should not be responsible for multiple unrelated tasks.
+Tek Sorumluluk Prensibi (SRP), bir sınıfın veya modülün yalnızca bir değişiklik nedenine sahip olması gerektiğini ifade eden bir yazılım tasarım prensibidir. Daha basit bir ifadeyle, her sınıfın yalnızca bir sorumluluğu veya görevi olmalı ve birden fazla ilişkisiz görevle uğraşmamalıdır.
 
-Before applying the SRP, let's consider an example. Suppose we have a class called Employee in a payroll system. This class is responsible for storing employee information, calculating their salaries and generating payslips. Here's what the class might look like:
+SRP'yi uygulamadan önce, bir örnek üzerinde düşünelim. Diyelim ki bir maaş bordrosu sisteminde Employee adında bir sınıfımız var. Bu sınıf, çalışan bilgilerini depolamak, maaşlarını hesaplamak ve bordro oluşturmakla ilgilenmektedir. İşte sınıfın yaklaşık olarak nasıl görünebileceği:
 
 ```swift 
 
@@ -29,9 +29,9 @@ class Employee {
 }
 
 ```
-In this example, the Employee class violates the SRP because it has multiple responsibilities. It not only stores employee information but also performs salary calculations and generates payslips. This can make the class harder to maintain and modify in the future. If there are changes in the payroll calculation logic or payslip generation, we would need to modify this class.
+Bu örnekte, Employee sınıfı SRP'yi ihlal ediyor çünkü birden fazla sorumluluğa sahip. Sınıf, sadece çalışan bilgilerini depolamakla kalmıyor, aynı zamanda maaş hesaplamalarını yapmak ve bordro oluşturmakla da ilgileniyor. Bu durum, sınıfın gelecekte bakımını ve değişikliklerini zorlaştırabilir. Maaş hesaplama mantığı veya bordro oluşturma gibi konularda değişiklik yapılması gerektiğinde Employee sınıfını değiştirmemiz gerekecektir.
 
-To adhere to the SRP, we can separate the responsibilities into distinct classes. Here's an example of how the code might look after applying the SRP:
+SRP'ye uymak için sorumlulukları farklı sınıflara ayırmamız gerekmektedir. İşte SRP'nin uygulandığı bir kod örneği:
 
 ```swift 
 
@@ -59,7 +59,7 @@ class PayslipGenerator {
 
 ```
 
-In the updated code, the Employee class now only handles the responsibility of storing employee information. The SalaryCalculator class is responsible for calculating the salary and the PayslipGenerator class handles the generation of payslips. Each class has a single responsibility and can be modified independently without affecting the others.
+Güncellenen kodda, Employee sınıfı artık sadece çalışan bilgilerini depolama sorumluluğunu üstlenmektedir. SalaryCalculator sınıfı maaş hesaplamasından, PayslipGenerator sınıfı ise bordro oluşturmaktan sorumludur. Her bir sınıfın tek bir sorumluluğu vardır ve diğerlerini etkilemeden bağımsız olarak değiştirilebilir.
 
-By separating the responsibilities, we achieve better code organization, maintainability and flexibility. If there are changes in the salary calculation or payslip generation logic, we can modify the respective classes without impacting the Employee class. This modular approach makes the code easier to understand, test, and maintain in the long run, which is the essence of the Single Responsibility Principle.
+Sorumlulukları ayırarak daha iyi bir kod organizasyonu, bakım kolaylığı ve esneklik elde ederiz. Maaş hesaplama veya bordro oluşturma mantığında değişiklik yapılması gerektiğinde, ilgili sınıfları değiştirebiliriz ve Employee sınıfını etkilemeden kalabiliriz. Bu modüler yaklaşım, kodun uzun vadede daha kolay anlaşılmasını, test edilmesini ve bakımını sağlar. Bu da Tek Sorumluluk Prensibi'nin temelidir.
 
