@@ -2,7 +2,7 @@
 
 Bağımlılık Tersine Çevirme Prensibi (DIP), yüksek seviye modüllerin/sınıfların düşük seviye modüllere/sınıflara doğrudan bağımlı olmamasını öneren bir yazılım tasarım prensibidir. Bunun yerine, yüksek seviye modüller/sınıflar soyutlamalara (arayüzler veya protokoller) bağımlı olmalıdır ve düşük seviye modüller/sınıflar bu soyutlamaları uygulamalıdır.
 
-Dependency Inversion Prensibi'ni uygulamadan önce, yüksek seviye modül düşük seviye modüle doğrudan bağımlıdır. Bu, düşük seviye modülde yapılacak herhangi bir değişikliğin yüksek seviye modülü etkileyeceği ve sıkıca bağlı bir sistem oluşacağı anlamına gelir. Ödeme sistemi bir örnek alalım:
+Bağımlılık Tersine Çevirme Prensibi'ni uygulamadan önce, yüksek seviye modül düşük seviye modüle doğrudan bağımlıdır. Bu, düşük seviye modülde yapılacak herhangi bir değişikliğin yüksek seviye modülü etkileyeceği ve sıkıca bağlı bir sistem oluşacağı anlamına gelir. Ödeme sistemi bir örnek alalım:
 
 DIP'nden Önce:
 
