@@ -1,10 +1,9 @@
 
 ## Open/Closed Principle 
 
-The Open/Closed Principle is a design principle that states that software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. This means that you should be able to add new functionality or behavior to a class without modifying its existing code.
+Açık/Kapalı Prensibi, yazılım varlıklarının (sınıflar, modüller, fonksiyonlar vb.) genişletmeye açık, değişikliğe kapalı olması gerektiğini belirten bir tasarım prensibidir. Bu, mevcut kodunu değiştirmeden bir sınıfa yeni işlevsellik veya davranış ekleyebilmeniz gerektiği anlamına gelir.
 
-Before applying the Open/Closed Principle:
-let's consider an example. Suppose we have a class called Shape, which has a calculateArea() method. Initially, it only supports calculating the area of a rectangle:
+Açık/Kapalı Prensibi'ni uygulamadan önce, bir örnek üzerinde düşünelim. İlk olarak, calculateArea() yöntemine sahip bir Shape sınıfımız olduğunu varsayalım. Başlangıçta, sadece bir dikdörtgenin alanını hesaplamayı desteklemektedir:
 
 ```swift
 class Shape {
@@ -13,7 +12,8 @@ class Shape {
     }
 }
 ```
-Now, Suppose we want to add support for calculating the area of a circle. Without following the Open/Closed Principle, we might be tempted to modify the existing Shape class and add a new method calculateArea(radius: Double):
+
+Şimdi, bir dairenin alanını hesaplamayı desteklemek istediğimizi varsayalım. Açık/Kapalı Prensibi'ni takip etmeden, mevcut Shape sınıfını değiştirerek ve yeni bir calculateArea(radius: Double) yöntemi ekleyerek bu işlevselliği eklemeye yönelebiliriz:
 
 ```swift
 class Shape {
@@ -26,10 +26,10 @@ class Shape {
     }
 }
 ```
-The problem with this approach is that we have modified the existing class, which can introduce bugs and impact the existing code that relies on the Shape class.
+Bu yaklaşımın sorunu, mevcut sınıfı değiştirmemizdir, bu da hatalara yol açabilir ve Shape sınıfına bağımlı olan mevcut kodu etkileyebilir.
 
-After applying the Open/Closed Principle:
-To adhere to the Open/Closed Principle, we can create an abstract base class or protocol called Shape and then define concrete classes that implement specific shapes. Here's an example:
+Açık/Kapalı Prensibi'ni uyguladıktan sonra:
+Açık/Kapalı Prensibi'ne uymak için, Shape adında soyut bir temel sınıf veya protokol oluşturabilir ve ardından belirli şekilleri uygulayan somut sınıfları tanımlayabiliriz. İşte bir örnek:
 
 ```swift
 protocol Shape {
@@ -62,6 +62,6 @@ class Circle: Shape {
     }
 }
 ```
-In this approach, the Shape protocol defines the common behavior of all shapes and each concrete class (e.g. Rectangle and Circle) implements the calculateArea() method according to their specific shape's logic. If we need to add support for a new shape, we can create a new class that conforms to the Shape protocol without modifying any existing code.
+Bu yaklaşımda, Shape protokolü tüm şekillerin ortak davranışını tanımlar ve her bir somut sınıf (örneğin, Rectangle ve Circle) calculateArea() yöntemini kendi şekillerinin mantığına göre uygular. Yeni bir şekil için destek eklememiz gerektiğinde, mevcut herhangi bir kodu değiştirmeden Shape protokolünü uygulayan yeni bir sınıf oluşturabiliriz.
 
-By following the Open/Closed Principle, we can easily extend our software with new functionality without the risk of introducing bugs or breaking existing code.
+Açık/Kapalı Prensibi'ni takip ederek, mevcut kodu değiştirmeden yazılımımızı kolayca yeni işlevlerle genişletebiliriz. Bu şekilde hata riskini ve mevcut kodu bozma riskini en aza indirebiliriz.
