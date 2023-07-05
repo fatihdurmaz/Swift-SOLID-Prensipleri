@@ -1,8 +1,8 @@
 ##  Interface Segregation Principle
 
-The Interface Segregation Principle (ISP) is a design principle that suggests breaking down large, monolithic interfaces into smaller, more specialized interfaces. It promotes the idea that clients should not be forced to depend on interfaces they do not use. In simple terms, it encourages the creation of focused and specific interfaces tailored to the needs of each client.
+Arayüz Ayırma Prensibi (ISP), büyük, monolitik arayüzleri daha küçük, daha özelleşmiş arayüzler haline getirme önerisinde bulunan bir tasarım prensibidir. Prensip, istemcilerin kullanmadıkları arayüzlere bağımlı olmamaları gerektiğini vurgular. Basit bir ifadeyle, her bir istemcinin ihtiyaçlarına uygun odaklanmış ve belirli arayüzlerin oluşturulmasını teşvik eder.
 
-Before applying ISP, let's consider an example where we have a Printer protocol with multiple methods:
+ISP'yi uygulamadan önce, çok sayıda yönteme sahip bir Printer protokolüne sahip bir örneği düşünelim:
 
 ```swift
 protocol Printer {
@@ -49,9 +49,9 @@ class HomePrinter: Printer {
 }
 ```
 
-In this case, both OfficePrinter and HomePrinter implement the same Printer protocol, which includes methods for printing, scanning, faxing, and copying. However, in practice, a home printer may not have the capability to fax or copy documents. By implementing the complete Printer protocol, we force the home printer to provide empty or irrelevant implementations for those methods.
+Bu durumda, OfficePrinter ve HomePrinter, yazdırma, tarama, faks çekme ve kopyalama gibi yöntemleri içeren aynı Printer protokolünü uygular. Ancak pratikte, bir ev yazıcısının faks çekme veya kopyalama yeteneği olmayabilir. Tüm Printer protokolünü uygulayarak, ev yazıcısını bu yöntemler için boş veya ilgisiz uygulamalar sunmaya zorlarız.
 
-After applying ISP, we refactor the interfaces to be more specific:
+ISP'yi uyguladıktan sonra, arayüzleri daha özelleştirilmiş hale getiririz:
 
 ```swift
 protocol Printable {
@@ -98,7 +98,7 @@ class HomePrinter: Printable, Scanable {
     }
 }
 ```
-By applying ISP, we have segregated the functionalities into separate protocols: Printable, Scanable, Faxable, and Copyable. Now, both OfficePrinter and HomePrinter can implement only the protocols they need. The HomePrinter class doesn't need to implement the unnecessary Faxable and Copyable protocols.
 
-This segregation allows each class to be focused on its specific responsibilities, leading to cleaner and more maintainable code. It also prevents clients from depending on methods they don't use, reducing the chance of errors and unnecessary coupling
+ISP'yi uygulayarak, işlevleri ayrı protokollere ayırdık: Printable, Scanable, Faxable ve Copyable. Şimdi, OfficePrinter ve HomePrinter yalnızca ihtiyaç duydukları protokolleri uygulayabilir. HomePrinter sınıfının gereksiz Faxable ve Copyable protokollerini uygulamasına gerek kalmaz.
 
+Bu ayrıma sayesinde, her sınıf belirli sorumluluklarına odaklanabilir ve daha temiz ve sürdürülebilir bir kod elde edilir. Ayrıca, istemcilerin kullanmadıkları yöntemlere bağımlı olmasını engeller, hataların ve gereksiz bağlantıların oluşma olasılığını azaltır.
