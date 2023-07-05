@@ -1,8 +1,8 @@
 ## Liskov Substitution Principle
 
-The Liskov Substitution Principle (LSP) is a fundamental principle in object-oriented programming that states that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program. In simpler terms, it means that we should be able to use a derived class wherever we expect the base class and everything should still work correctly.
+Liskov Substitution Prensibi (LSP), nesne tabanlı programlamada temel bir prensiptir ve bir üst sınıfa ait nesnelerin, onun alt sınıflarıyla değiştirilebilmesi durumunda programın doğruluğunu etkilemeden çalışması gerektiğini ifade eder. Daha basit bir ifadeyle, bir temel sınıf beklediğimiz herhangi bir yerde türetilmiş bir sınıfı kullanabilmeliyiz ve her şey doğru çalışmalıdır.
 
-Let's consider an example to better understand LSP. Suppose we have a superclass called Shape that has a method called calculateArea to calculate the area of a shape. We also have two subclasses: Rectangle and Square. The Rectangle class has a length and width, while the Square class has only a side length. Here's an example of how the classes might look without applying LSP:
+LSP'yi daha iyi anlamak için bir örnek üzerinde düşünelim. CalculateArea adında bir yöntem içeren Shape adında bir üst sınıfımız olduğunu varsayalım. Ayrıca Rectangle ve Square adında iki alt sınıfımız var. Rectangle sınıfı uzunluk ve genişliğe sahipken, Square sınıfı sadece bir kenar uzunluğuna sahiptir. İşte LSP'yi uygulamadan bu sınıfların nasıl görünebileceği bir örnek:
 
 ```swift 
 class Shape {
@@ -38,7 +38,7 @@ class Square: Shape {
     }
 }
 ```
-Now, let's say we have a function that expects an instance of Shape and calls its calculateArea method:
+Şimdi, Shape'in bir örneğini bekleyen ve calculateArea yöntemini çağıran bir işlevimiz olduğunu varsayalım:
 
 ```swift 
 func printArea(shape: Shape) {
@@ -47,7 +47,7 @@ func printArea(shape: Shape) {
 }
 ```
 
-This code works fine until we try to pass a Square object to the printArea function:
+Bu kod, printArea işlevine Square nesnesini geçirmeye çalıştığımızda sorun çıkar:
 
 ```swift 
 let rectangle = Rectangle(length: 5, width: 3)
@@ -57,9 +57,9 @@ let square = Square(sideLength: 4)
 printArea(shape: square) // Output: Area: 16
 ```
 
-In this case, even though the output is correct, the Square object doesn't fully conform to the behavior expected by the Shape superclass. The Liskov Substitution Principle tells us that the subclasses should be able to substitute the superclass without causing any issues.
+Bu durumda, çıktı doğru olsa da Square nesnesi, Shape üst sınıfının beklenen davranışına tam olarak uymamaktadır. Liskov Substitution Prensibi, alt sınıfların üst sınıfın yerine geçebilmesi gerektiğini ve herhangi bir soruna yol açmaması gerektiğini belirtir.
 
-To fix this, we can refactor the code to properly adhere to the LSP. One possible solution is to use composition instead of inheritance:
+Bunu düzeltmek için kodu LSP'ye uygun şekilde yeniden düzenleyebiliriz. Bir olası çözüm, kalıtım yerine bileşimi kullanmaktır:
 
 ```swift 
 protocol Shape {
@@ -84,7 +84,7 @@ struct Square: Shape {
     }
 }
 ```
-Now, the Shape protocol defines the contract for calculating the area and both Rectangle and Square implement the protocol. We can modify the printArea function accordingly:
+Şimdi, Shape protokolü alanın hesaplanması için bir sözleşme tanımlar ve Rectangle ve Square protokolü uygular. Buna göre printArea fonksiyonunu düzenleyebiliriz:
 
 ```swift 
 func printArea(shape: Shape) {
@@ -93,7 +93,7 @@ func printArea(shape: Shape) {
 }
 ``` 
 
-With this refactored code, we can safely pass both Rectangle and Square objects to the printArea function, satisfying the Liskov Substitution Principle:
+Bu yeniden düzenlenmiş kod ile, Rectangle ve Square nesnelerini güvenli bir şekilde printArea fonksiyonuna geçirebiliriz ve bu şekilde Liskov Substitution Prensibini karşılamış oluruz:
 
 ```swift 
 let rectangle = Rectangle(length: 5, width: 3)
@@ -102,4 +102,4 @@ printArea(shape: rectangle) // Output: Area: 15
 let square = Square(sideLength: 4)
 printArea(shape: square) // Output: Area: 16
 ```
-Mow, the code adheres to the LSP because we can substitute the superclass (Shape) with its subclasses (Rectangle and Square) without any issues.
+Şimdi, kod Liskov Substitution Prensibine uyar, çünkü üst sınıfı (Shape) alt sınıfları (Rectangle ve Square) ile sorunsuz bir şekilde değiştirebiliriz.
