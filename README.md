@@ -1,16 +1,16 @@
-# SOLID Principles
+# SOLID Prensipleri
 
 ![blg_inline_solid_principles](https://github.com/vishalMalvi/SOLID-Principles-in-Swift/assets/97470591/4fba6f05-ad99-42e1-b53a-7abaced1d6f0)
 
 
-### The SOLID principles are a set of guidelines for writing good, maintainable code. Here is a brief explanation of each principle in the context of Swift:
+### SOLID prensipleri, iyi ve bakımı kolay kod yazmak için bir dizi kılavuzdur. İşte Swift bağlamında her prensibin kısa bir açıklaması:
 
-Single Responsibility Principle (SRP): Each class or module should have only one responsibility. In Swift, this means that a class should only have one reason to change.
+Tek Sorumluluk Prensibi (SRP): Her sınıf veya modülün yalnızca bir sorumluluğu olmalıdır. Swift'te bu, bir sınıfın yalnızca değişiklik yapma sebebi olması gerektiği anlamına gelir.
 
-Open/Closed Principle (OCP): Classes should be open for extension but closed for modification. In other words, you should be able to add new functionality to a class without changing its existing code.
+Açık/Kapalı Prensibi (OCP): Sınıflar genişletmeye açık, değişikliğe kapalı olmalıdır. Başka bir deyişle, mevcut kodunu değiştirmeden bir sınıfa yeni işlevsellik ekleyebilmelisiniz.
 
-Liskov Substitution Principle (LSP): Subtypes should be substitutable for their base types. In Swift, this means that any subclass should be able to be used in place of its parent class without causing unexpected behavior.
+Liskov Yerine Geçme Prensibi (LSP): Alt tipler, temel tiplerinin yerine geçebilmelidir. Swift'te bu, bir alt sınıfın, üst sınıfının yerine kullanılabilmeli ve beklenmeyen davranışlara neden olmamalıdır.
 
-Interface Segregation Principle (ISP): Clients should not be forced to depend on interfaces they do not use. In Swift, this means that you should define smaller protocols instead of large ones that include methods that aren't needed.
+Arayüz Ayırma Prensibi (ISP): Müşteriler, kullanmadıkları arayüzlerden bağımlı olmamalıdır. Swift'te bu, ihtiyaç duyulmayan yöntemleri içeren büyük arayüzler yerine daha küçük protokoller tanımlamanız gerektiği anlamına gelir.
 
-Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules. Instead, both should depend on abstractions. In Swift, this means that you should use protocols to define interfaces between classes, instead of relying on concrete implementations.
+Bağımlılık Tersine Çevirme Prensibi (DIP): Yüksek seviyeli modüller, düşük seviyeli modüllere bağlı olmamalıdır. Bunun yerine her ikisi de soyutlamalara bağlı olmalıdır. Swift'te bu, sınıflar arasındaki arayüzleri tanımlamak için somut uygulamalara dayanmak yerine protokoller kullanmanız gerektiği anlamına gelir.
